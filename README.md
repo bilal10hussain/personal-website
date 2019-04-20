@@ -1,5 +1,5 @@
 # personal-website
-My personal website: www.bilal.wtf
+My personal website: https://bilalhussain.netlify.com/
 
 Implemented in this project:
 * Own (custom) Gulp file

@@ -1,0 +1,214 @@
+/******************************
+* Main content wrapper
+******************************/
+.main-content {
+    position: relative;
+    max-width: 951px;
+    margin: 0 auto;
+
+    @include breakpoint(1024px, 'to') {
+        max-width: 931px;
+    }
+
+    @include breakpoint(900px, 'to') {
+        max-width: 751px;
+    }
+
+    @include breakpoint(480px, 'to') {
+        max-width: 391px;
+    }
+
+    @include breakpoint(410px, 'to') {
+        max-width: 361px;
+    }
+}
+
+.thumb {
+    width: 50px;
+    background-image: url('https://googlechromelabs.github.io/ui-element-samples/custom-scrollbar/cat.gif'), linear-gradient(90deg, transparent, magenta, red, yellow, limegreen, turquoise, blue, magenta, transparent);
+    background-position: center bottom, center -40px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    z-index: 234234234234;
+}
+
+/******************************
+* Main content blocks (article)
+******************************/
+.article {
+    cursor: url(../images/rsz_cursor-cool.png) 70 60,pointer;
+
+    &.is-small {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.is-even {
+        position: relative;
+        z-index: 3824798234234;
+        margin: -28px 0 -28px 32px;
+        width: 100%;
+
+        @include breakpoint(1024px, 'to') {
+            margin: -15px 0 -13px 12px;
+        }
+    }
+
+    &.is-footer {
+        max-width: 40%;
+        margin-top: -21px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include breakpoint(1024px, 'to') {
+            max-width: 70%;
+        }
+    }
+
+    &__header {
+        max-width: 900px;
+        max-height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__main {
+        z-index: 123;
+        position: relative;
+        padding: 57px 49px 83px 49px;
+        transition: all 0.25s;
+        background-color: $color-white;
+
+        .is-even & {
+            background: #1ea0ff;
+            color: $color-white;
+        }
+
+        .is-footer & {
+            //background: #1e5799; /* Old browsers */
+            //background: -moz-linear-gradient(left,  #1e5799 0%, #2989d8 37%, #207cca 100%, #7db9e8 100%); /* FF3.6-15 */
+            //background: -webkit-linear-gradient(left,  #1e5799 0%,#2989d8 37%,#207cca 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+            //background: linear-gradient(to right,  #1e5799 0%,#2989d8 37%,#207cca 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */
+            border: 1px solid darkblue;
+        }
+
+
+        &:hover {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+        }
+
+        @include breakpoint(1024px, 'to') {
+            padding: 29px;
+        }
+
+        .is-bottom & {
+            background-color: #ff735c;
+            color: $color-white;
+            cursor: url(../images/rsz_trophy.png) 4 12, pointer;
+
+            .ie & {
+                background-color: darkgray;
+            }
+
+            h1 {
+                color: $color-white;
+            }
+        }
+
+        &.has-related-things {
+            display: flex;
+        }
+    }
+
+    &__text {
+        width: 100%;
+
+        @include breakpoint(1024px, 'to') {
+            width: 100%;
+        }
+
+        .has-related-things & {
+            max-width: 550px;
+
+            @include breakpoint(1024px, 'to') {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__related-things {
+        position: relative;
+        right: -72px;
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        flex-direction: column;
+        text-align: right;
+
+        @include breakpoint(1024px, 'to') {
+            display: none;
+        }
+    }
+}
+
+.is-song {
+    margin: 0 0 30px;
+    transform: scale(1);
+    transition: all 0.25s;
+
+    &:last-child {
+        margin: 0;
+    }
+
+    &:hover {
+        transform: scale(1.265);
+        animation: bgcolour-flip 1.25s infinite;
+
+        .ie & {
+            animation: unset;
+            color: $color-white;
+        }
+    }
+}
+
+.text {
+    &--big-devices {
+        @include breakpoint(1024px, 'to') {
+            display: none;
+        }
+
+        display: block;
+    }
+
+    &--extra-strong {
+        background-color: $color-red;
+        color: $color-white;
+
+        .ie & {
+            background-color: darkgray;
+        }
+    }
+}
+
+.img__bunkers {
+    display: block;
+
+    .ie & {
+        filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    }
+
+    @include breakpoint(1025px, 'from') {
+        position: relative;
+        top: -60px;
+    }
+}
+
+#floor1 li:first-child, #filler4, #filler5, #filler6 {
+    @include breakpoint(1024px, 'to') {
+        display: none;
+    }
+}

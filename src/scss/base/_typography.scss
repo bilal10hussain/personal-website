@@ -1,0 +1,61 @@
+/******************************
+* Typography
+******************************/
+h1, h2, h3, p, ul {
+    transition: all .25s;
+}
+
+h1, h2, h3 {
+    &:hover {
+        cursor: default;
+    }
+}
+
+h1 {
+    //font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+    //font-family: Arial, sans-serif;
+    font-size: 2em;
+    color: $color-blue;
+    display: inline-block;
+    margin: 0 0 30px -12px;
+    line-height: 32px;
+    position: relative;
+
+    .ie & {
+        color: darkgray;
+    }
+
+    &:hover {
+        animation: font-flip 1s infinite;
+    }
+
+    @include breakpoint(768px, 'to') {
+        font-size: $font-size-h1;
+    }
+
+    @include breakpoint(769px 1024px, 'from-to') {
+        margin-top: 25px;
+    }
+}
+
+h2 {
+    font-size: 18px;
+    margin: 20px 0 5px 0;
+    padding-bottom: 1px;
+}
+
+p {
+    //font-family: $font-stack-monospace;
+    //font-family: Arial, sans-serif;
+    margin: 0 0 20px;
+    transition: all 0.25s;
+
+    &.text--small {
+        font-size: 12px;
+    }
+}
+
+// Center text
+.is-centered {
+    text-align: center;
+}

@@ -1,0 +1,76 @@
+/******************************
+* Buttons/links
+******************************/
+.btn {
+    // Action buttons (sidebar)
+    &--action {
+        background-color: $color-red;
+        color: $color-white;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .25s;
+        margin-top: 20px;
+
+        .ie & {
+            background-color: darkgray;
+        }
+
+        &:hover {
+            animation: bgcolour-flip 1s infinite;
+        }
+    }
+
+    // Gif buttons
+    &--gif {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+
+        @include breakpoint(1025px, 'from') {
+            cursor: default;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        &:hover {
+            @include breakpoint(1025px, 'from') {
+                color: $color-white;
+
+                &:after {
+                    height: 20px;
+                    animation: bgcolour-flip 1s infinite;
+                }
+            }
+        }
+
+        &:after {
+            @include breakpoint(1025px, 'from') {
+                content: " ";
+                display: inline-block;
+                background: #1defff;
+                position: absolute;
+                left: 0;
+                bottom: 1px;
+                height: 1px;
+                width: 100%;
+                transition: all 0.15s;
+                z-index: -1;
+            }
+        }
+    }
+
+    // Sound buttons
+    &--sound {
+        background: $bgcolor-sound-btn;
+        color: $color-black;
+
+        .ie & {
+            background-color: darkgray;
+            color: $color-white;
+        }
+
+        &:hover {
+            color: $color-sound-hover;
+        }
+    }
+}

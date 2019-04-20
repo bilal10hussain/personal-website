@@ -1,0 +1,40 @@
+/******************************
+* Reset / default styles
+******************************/
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    //background: linear-gradient(90deg, #eee 1px, transparent 0) 0 0, #fff;
+    //background-size: 50px 1px;
+    background-image: url("https://i.ibb.co/RpBbxDz/background-1445021-640.png");
+    background-repeat: repeat;
+    margin: 0;
+    //font-family: $font-stack-monospace;
+    font-family: Arial, sans-serif;
+    font-size: $font-size-default;
+    line-height: $line-height-default;
+    height: 100%;
+
+    &.ie {
+        background: #d8d8d8;
+        color: darkgray;
+    }
+
+    @include breakpoint(1024px, 'to') {
+        font-size: 13px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    cursor: url(../images/rsz_cursor-eyes.png) 4 12, pointer;
+}

@@ -1,0 +1,28 @@
+/******************************
+* Animations
+******************************/
+// Used for heading 1
+@keyframes font-flip {
+    15%     { font-family: Georgia, serif; }
+    30%     { font-family: Comic Sans MS, serif; }
+    45%     { font-family: Times New Roman, sans-serif; }
+    60%     { font-family: Arial, serif; }
+    75%     { font-family: Georgia, sans-serif; }
+    90%     { font-family: Tahoma, serif; }
+    100%    { font-family: Calibri, sans-serif; }
+}
+
+// Used for buttons
+@keyframes bgcolour-flip {
+    20%     { background-color: lightblue; }
+    40%     { background-color: lightcoral; }
+    60%     { background-color: lightseagreen; }
+    80%     { background-color: lightgreen; }
+    100%    { background-color: lightslategray; }
+}
+
+// Used for label
+@keyframes keep-rotating {
+    0%      { transform: rotate(0deg) }
+    100%    { transform: rotate(360deg); }
+}

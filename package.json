@@ -5,7 +5,7 @@
   "author": "Bilal Hussain",
   "license": "ISC",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "github:gulpjs/gulp#v4.0.0-alpha.3"
   },
   "devDependencies": {
     "del": "^3.0.0",

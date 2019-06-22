@@ -12,29 +12,19 @@ h1, h2, h3 {
 }
 
 h1 {
-    //font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
-    //font-family: Arial, sans-serif;
-    font-size: 2em;
+    font-size: 20px;
     color: $color-blue;
     display: inline-block;
-    margin: 0 0 30px -12px;
+    margin: 0 0 10px -10px;
     line-height: 32px;
     position: relative;
 
+    @include breakpoint(1024px, 'from') {
+        margin: 0 0 30px -10px;
+    }
+
     .ie & {
         color: darkgray;
-    }
-
-    &:hover {
-        animation: font-flip 1s infinite;
-    }
-
-    @include breakpoint(768px, 'to') {
-        font-size: $font-size-h1;
-    }
-
-    @include breakpoint(769px 1024px, 'from-to') {
-        margin-top: 25px;
     }
 }
 
@@ -45,17 +35,10 @@ h2 {
 }
 
 p {
-    //font-family: $font-stack-monospace;
-    //font-family: Arial, sans-serif;
     margin: 0 0 20px;
     transition: all 0.25s;
 
     &.text--small {
         font-size: 12px;
     }
-}
-
-// Center text
-.is-centered {
-    text-align: center;
 }

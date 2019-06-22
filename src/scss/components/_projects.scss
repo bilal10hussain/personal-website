@@ -1,0 +1,22 @@
+// Projects (inside portfolio)
+.project {
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        padding: 5px 0;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+
+        &__title {
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+    }
+}

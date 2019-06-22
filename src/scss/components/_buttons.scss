@@ -4,12 +4,13 @@
 .btn {
     // Action buttons (sidebar)
     &--action {
-        background-color: $color-red;
+        background-color: $color-blue;
         color: $color-white;
-        text-decoration: none;
         display: inline-block;
-        transition: all .25s;
         margin-top: 20px;
+        padding: 5px 10px;
+        text-decoration: none;
+        transition: all .25s;
 
         .ie & {
             background-color: darkgray;
@@ -22,14 +23,14 @@
 
     // Gif buttons
     &--gif {
-        position: relative;
         display: inline-block;
+        position: relative;
         text-transform: uppercase;
 
         @include breakpoint(1025px, 'from') {
             cursor: default;
-            font-weight: bold;
             font-size: 16px;
+            font-weight: bold;
         }
 
         &:hover {
@@ -37,40 +38,25 @@
                 color: $color-white;
 
                 &:after {
-                    height: 20px;
                     animation: bgcolour-flip 1s infinite;
+                    height: 20px;
                 }
             }
         }
 
         &:after {
             @include breakpoint(1025px, 'from') {
+                background: #1defff;
+                bottom: 1px;
                 content: " ";
                 display: inline-block;
-                background: #1defff;
-                position: absolute;
-                left: 0;
-                bottom: 1px;
                 height: 1px;
-                width: 100%;
+                left: 0;
+                position: absolute;
                 transition: all 0.15s;
+                width: 100%;
                 z-index: -1;
             }
-        }
-    }
-
-    // Sound buttons
-    &--sound {
-        background: $bgcolor-sound-btn;
-        color: $color-black;
-
-        .ie & {
-            background-color: darkgray;
-            color: $color-white;
-        }
-
-        &:hover {
-            color: $color-sound-hover;
         }
     }
 }

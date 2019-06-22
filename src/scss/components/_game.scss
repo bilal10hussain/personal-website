@@ -2,9 +2,9 @@
 * Game (Tetris)
 ******************************/
 .game {
+    align-self: flex-end;
+    display: flex;
+    height: 500px;
     position: relative;
     width: 250px;
-    height: 500px;
-    display: flex;
-    align-self: flex-end;
 }

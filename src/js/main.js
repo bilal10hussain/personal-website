@@ -1,5 +1,5 @@
 $(function() {
-    var Breakpoints = {
+    var BREAKPOINTS = {
         maxMobile: '480',
         maxTabletLandscape: '1024'
     };
@@ -14,36 +14,27 @@ $(function() {
         detectElements: function() {
             this.$htmlBody = $('html,body');
             this.$overlay = $('.overlay');
-            // this.$elevatorUpBtn = $('.btn--elevator-pitch');
             this.$triggerEl = $('[data-jumpto]');
-            // this.$trapBtn = $('.js-trigger-trap');
             this.$triggerAudioBtn = $('.js-trigger-sound');
             this.$audioElements = $('audio');
-            // this.$timeLeft = $('.time-left');
-
             this.screenSize = window.innerWidth;
-            // this.jumpSpeed = 500;
-            // this.endOfPage = $(document).height() - $(window).height();
         },
         bindEvents: function() {
-            // this.$elevatorUpBtn.on('click', this.elevatorThing.bind(this));
-            this.$triggerEl.on('click', this.jumpToX);
-            this.$triggerAudioBtn.on('mouseenter touchstart', this.audioMouseEnterThing);
-            this.$triggerAudioBtn.on('mouseleave', this.audioMouseLeaveThing.bind(this));
+            if (this.$triggerEl) {
+				this.$triggerEl.on('click', this.jumpToX);
+			}
+			
+			if (this.$triggerAudioBtn) {
+				this.$triggerAudioBtn.on('mouseenter touchstart', this.audioMouseEnterThing);
+				this.$triggerAudioBtn.on('mouseleave', this.audioMouseLeaveThing.bind(this));
+			}
         },
         screenCheckThing: function() {
-            if (this.screenSize > Breakpoints.maxTabletLandscape) {
+            if (this.screenSize > BREAKPOINTS.maxTabletLandscape) {
                 this.gifHoverThing();
                 this.gameThing();
             }
-            // if (this.screenSize <= Breakpoints.maxTabletLandscape) {
-            //     this.jumpSpeed = 250;
-            // }
-
             this.hideOverlay();
-
-            // this.jumpToEnd();
-            // this.nsfwTrapThing();
         },
         checkIE: function() {
             var ua = window.navigator.userAgent,
@@ -53,51 +44,9 @@ $(function() {
                 $("body").addClass("ie");
             }
         },
-        // elevatorThing: function(e) {
-        //     e.preventDefault();
-        //
-        //     var elevatorSpeedInMs = 30000,
-        //         elevatorSpeedInSec = 30,
-        //         elevatorIntervalSpeed = 1000;
-        //
-        //     this.$htmlBody.animate({
-        //             scrollTop: 0
-        //         },
-        //         elevatorSpeedInMs,
-        //         function() {
-        //             $('#sound-ding')[0].play();
-        //         }
-        //     );
-        //
-        //     var counter = elevatorSpeedInSec,
-        //         interval = setInterval(function() {
-        //             counter--;
-        //
-        //             this.$timeLeft.text(counter);
-        //
-        //             if (counter <= 10) {
-        //                 this.$timeLeft.css('color', 'red');
-        //             }
-        //
-        //             if (counter === 0) {
-        //                 this.$timeLeft.text('');
-        //                 clearInterval(interval);
-        //             }
-        //         }, elevatorIntervalSpeed);
-        // },
-        // jumpToEnd: function() {
-        //     this.$htmlBody.animate({
-        //             scrollTop: this.endOfPage
-        //         },
-        //         this.jumpSpeed,
-        //         function() {
-        //             Website.hideOverlay();
-        //         }
-        //     );
-        // },
         jumpToX: function() {
             var $targetElData = $(this).data('jumpto'),
-            $targetEl = $('#' + $targetElData);
+            $targetEl = $('.' + $targetElData);
 
             Website.$htmlBody.animate({
                     scrollTop: $targetEl.offset().top - 50
@@ -111,18 +60,20 @@ $(function() {
             var $triggerGifBtn = $('.js-trigger-gif'),
                 defaultImage = 'url(images/coding.gif)';
 
-            $triggerGifBtn
-                .on('mouseenter touchstart', function() {
-                    var dataGif = $(this).data('gif'),
-                        $mediaEl = $(this).parents('.article__main').find('.side-gif');
+            if ($triggerGifBtn) {
+                $triggerGifBtn
+                    .on('mouseenter touchstart', function() {
+                        var dataGif = $(this).data('gif'),
+                            $mediaEl = $(this).parents('.section__content').find('.side-gif');
 
-                    $($mediaEl).css('background-image', 'url(images/' + dataGif + '.gif)');
-                })
-                .on('mouseleave', function() {
-                    var $mediaEl = $(this).parents('.article__main').find('.side-gif');
+                        $($mediaEl).css('background-image', 'url(images/' + dataGif + '.gif)');
+                    })
+                    .on('mouseleave', function() {
+                        var $mediaEl = $(this).parents('.section__content').find('.side-gif');
 
-                    $mediaEl.css('background-image', defaultImage);
-                });
+                        $mediaEl.css('background-image', defaultImage);
+                    });
+            }
         },
         audioMouseEnterThing: function() {
             var dataSound = $(this).data('sound');
@@ -135,7 +86,11 @@ $(function() {
             });
         },
         gameThing: function() {
-            $('.game').blockrain({ autoplayRestart: true, theme: 'modern' });
+            var $game = $('.game');
+
+            if ($game) {
+                $game.blockrain({ autoplayRestart: true, theme: 'modern' });
+            }
         },
         hideOverlay: function() {
             this.$overlay.hide();

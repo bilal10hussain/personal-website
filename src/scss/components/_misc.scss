@@ -4,11 +4,11 @@
 // This is the first visit overlay
 .overlay {
     background-color: $color-blue;
-    width: 100%;
     height: 100%;
-    position: fixed;
     left: 0;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 9839043434;
 
     .ie & {
@@ -16,39 +16,17 @@
     }
 }
 
-// Floor stuff (can be found on the upper right side of each floor)
-.floor {
-    &-label {
-        cursor: help;
-        margin: 0 0 10px;
+// Header image
+.img__bunkers {
+    display: block;
 
-        .ie & {
-            background-color: darkgray;
-        }
-
-        @include breakpoint(1023px, 'to') {
-            right: 10px;
-            top: 10px;
-        }
-
-        @include breakpoint(480px, 'to') {
-            display: none;
-        }
+    .ie & {
+        filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
     }
 
-    &-name {
-        display: inline-block;
-        background: blue;
-        color: #fff;
-        padding: 3px 10px;
-
-        @include breakpoint(1023px, 'to') {
-            font-size: 14px;
-        }
-
-        &:hover {
-            animation: keep-rotating 1s infinite;
-        }
+    @include breakpoint(1025px, 'from') {
+        position: relative;
+        top: -60px;
     }
 }
 
@@ -57,31 +35,12 @@
     background-image: url(../images/coding.gif);
     background-position: center center;
     background-size: cover;
-    position: relative;
     height: 55%;
+    position: relative;
     width: 100%;
 }
 
 // Related links list (contains buttons)
 .related-links__list {
     @include clearList;
-}
-
-// Project item (inside portfolio)
-.project-item {
-    padding: 5px 0;
-
-    &__title {
-        border: 1px solid darkblue;
-        background: #7db9e8; /* Old browsers */
-        background: -moz-linear-gradient(top,  #7db9e8 0%, #2989d8 50%, #034999 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  #7db9e8 0%,#2989d8 50%,#034999 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  #7db9e8 0%,#2989d8 50%,#034999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        color: $color-white;
-
-        &:before {
-            content: "→";
-            padding-right: 10px;
-        }
-    }
 }
